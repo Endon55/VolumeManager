@@ -4,12 +4,11 @@ import lc.kra.system.keyboard.event.GlobalKeyEvent;
 
 public class GlobalHotkeys
 {
-
-
-
     private static boolean running = true;
     private GlobalKeyboardHook keyHook = new GlobalKeyboardHook();
 
+    VolumeManagerDLL jnaLib = VolumeManagerDLL.INSTANCE;
+    boolean status = jnaLib._Z12ChangeVolumefPKc(.05f, "TslGame.exe");
 
 
     public static boolean getRunning(){ return running; }
@@ -23,8 +22,17 @@ public class GlobalHotkeys
             @Override
             public void keyPressed(GlobalKeyEvent event)
             {
+                if(event.getVirtualKeyCode() == GlobalKeyEvent.VK_F5 && event.isShiftPressed())
+                {
+                    jnaLib._Z12ChangeVolumefPKc(.05f, "TslGame.exe");
+                }
+                if(event.getVirtualKeyCode() == GlobalKeyEvent.VK_F4 && event.isShiftPressed())
+                {
+                    jnaLib._Z12ChangeVolumefPKc(-.05f, "TslGame.exe");
+                }
                 if (event.getVirtualKeyCode() == GlobalKeyEvent.VK_A && event.isShiftPressed())
                 {
+
                     System.out.println("Quitting!");
                     setRunning(false);
                 }

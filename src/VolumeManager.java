@@ -1,8 +1,3 @@
-
-
-
-
-
 /*
     This project is so I can mute, unmute, and change volume of programs via Hotkey.
 
@@ -13,7 +8,6 @@
     Core audio api
  */
 
-import javax.sound.sampled.*;
 
 public class VolumeManager
 {
@@ -21,16 +15,20 @@ public class VolumeManager
     {
 
 
-
-        /*GlobalHotkeys hk = new GlobalHotkeys();
+        //System.out.println("Status: " + status);
+        GlobalHotkeys hk = new GlobalHotkeys();
         hk.start();
-        try {
-            while(hk.getRunning())
+        try
+        {
+            while (hk.getRunning())
             {
                 Thread.sleep(128);
             }
-        } catch(InterruptedException e) { *//* nothing to do here *//* }
-        finally { hk.shutdown(); }*/
+        } catch (InterruptedException e)
+        {}
+        finally{
+            hk.shutdown();
+        }
     }
 }
 
