@@ -6,6 +6,8 @@
 .idea/**/tasks.xml
 .idea/**/dictionaries
 .idea/**/shelf
+.bat
+*.o
 
 # Sensitive or high-churn files
 .idea/**/dataSources/

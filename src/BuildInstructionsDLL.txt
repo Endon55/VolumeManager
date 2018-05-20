@@ -1,0 +1,77 @@
+
+
+http://capsis.cirad.fr/capsis/documentation/java-c_connectioncompleteexample
+
+Requires the 64 bit version of minGW to compile a 64 bit dll
+
+To build the dll
+
+compiles source code
+g++ -c -m64 SimpleDLL.cpp
+
+generates dll
+g++ -shared -m64 -o SimpleDLL.dll SimpleDLL.o
+
+*IMPORTANT* for VolumeManager you must add Ole32.lib to the folder where the code is
+you then must add -lOle32 to the end of the dll generation command
+
+g++ -c -m64 VolumeManagerDLL.cpp
+g++ -shared -m64 -o VolumeManagerDLL.dll VolumeManagerDLL.o -lOle32
+
+you must then use dependency walked to see what minGW named your functions, they will not be the same
+for example add(), became _Z3adddd()
+you will call _Z3adddd() in java.
+
+
+
+//Sample header and c++ files
+
+
+SimpleDLL.h
+
+#pragma once  
+
+#ifdef Library_EXPORTS  
+#define LibraryY_API __declspec(dllexport)   
+#else  
+#define Library_API __declspec(dllimport)   
+#endif  
+
+// Returns a + b  
+double __declspec(dllexport) add(double a, double b);
+
+// Outputs Hello World!
+void __declspec(dllexport) helloWorld();
+
+// Returns true if number is odd
+bool __declspec(dllexport) odd(int a)
+
+
+
+
+cpp.c++
+
+#include "stdafx.h"  
+#include "SimpleDLL.h"  
+#include <iostream>
+
+
+double add(double a, double b)
+{
+	return a + b;
+}
+
+void helloWorld()
+{
+	std::cout << "Hello World!" << std::endl;
+}
+
+ 
+bool odd(int a)
+{
+	if (a % 2 == 0)
+	{
+		return false;
+	}
+	else return true;
+}
