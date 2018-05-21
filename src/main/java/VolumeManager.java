@@ -1,4 +1,4 @@
-/*
+package src.main.java;/*
     This project is so I can mute, unmute, and change volume of programs via Hotkey.
 
     Uses
@@ -16,7 +16,7 @@ public class VolumeManager
 
 
         //System.out.println("Status: " + status);
-        GlobalHotkeys hk = new GlobalHotkeys();
+        GlobalHotkeys hk = new GlobalHotkeys("chrome.exe", .05f);
         hk.start();
         try
         {

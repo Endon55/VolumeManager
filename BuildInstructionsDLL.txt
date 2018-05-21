@@ -12,7 +12,7 @@ g++ -c -m64 SimpleDLL.cpp
 generates dll
 g++ -shared -m64 -o SimpleDLL.dll SimpleDLL.o
 
-*IMPORTANT* for VolumeManager you must add Ole32.lib to the folder where the code is
+*IMPORTANT* for src.main.java.VolumeManager you must add Ole32.lib to the folder where the code is
 you then must add -lOle32 to the end of the dll generation command
 
 g++ -c -m64 VolumeManagerDLL.cpp
