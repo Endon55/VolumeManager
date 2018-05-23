@@ -1,4 +1,6 @@
-package src.main.java;/*
+
+
+/*
     This project is so I can mute, unmute, and change volume of programs via Hotkey.
 
     Uses

@@ -3,6 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/VolumeManager.iml" filepath="$PROJECT_DIR$/VolumeManager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/VolumeManager_main.iml" filepath="$PROJECT_DIR$/.idea/modules/VolumeManager_main.iml" group="VolumeManager" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/VolumeManager_test.iml" filepath="$PROJECT_DIR$/.idea/modules/VolumeManager_test.iml" group="VolumeManager" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/dependencies/dependencies.iml" filepath="$PROJECT_DIR$/.idea/modules/dependencies/dependencies.iml" group="dependencies" />
     </modules>
   </component>
 </project>

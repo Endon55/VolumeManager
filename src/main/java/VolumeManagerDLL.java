@@ -1,4 +1,3 @@
-package src.main.resources;
 
 import com.sun.jna.Library;
 import com.sun.jna.Native;
