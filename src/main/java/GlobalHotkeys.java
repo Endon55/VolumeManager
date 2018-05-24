@@ -4,7 +4,6 @@ import lc.kra.system.keyboard.event.GlobalKeyEvent;
 
 public class GlobalHotkeys
 {
-
     private String program;
     private float deltaProgram;
 
@@ -12,7 +11,6 @@ public class GlobalHotkeys
     private GlobalKeyboardHook keyHook = new GlobalKeyboardHook();
 
     VolumeManagerDLL jnaLib = VolumeManagerDLL.INSTANCE;
-
 
     public static boolean getRunning(){ return running; }
 

@@ -19,6 +19,7 @@ public class VolumeManager
 
         //System.out.println("Status: " + status);
         GlobalHotkeys hk = new GlobalHotkeys("chrome.exe", .05f);
+        /*
         hk.start();
         try
         {
@@ -30,7 +31,9 @@ public class VolumeManager
         {}
         finally{
             hk.shutdown();
-        }
+        }*/
+
+        while(true){}
     }
 }
 
