@@ -9,19 +9,22 @@ apply plugin: 'java'
 apply plugin: 'com.github.johnrengelman.plugin-shadow'
 apply plugin: 'application'
 
+
 mainClassName = 'VolumeManager'
 
 jar {
     manifest {
         attributes 'Main-Class': 'VolumeManager'
-        attributes 'Class-Path': 'lib'
+        attributes 'Class-Path': 'lib/system-hook-3.2.jar lib/jna-4.5.1.jar lib/VolumeManager.dll'
     }
 }
+
 repositories {
     flatDir {
         dirs 'lib'
     }
 }
+
 
 buildscript {
     repositories {
@@ -33,8 +36,9 @@ buildscript {
 }
 
 dependencies {
-    compile name: 'jna-4.5.1'
-    compile name: 'system-hook-3.2'
+    compile fileTree(dir:'lib', include: "jna-4.5.1.jar")
+    compile fileTree(dir:'lib', include: "system-hook-3.2.jar")
 }
+
 
 

@@ -1,3 +1,4 @@
+
 import lc.kra.system.keyboard.GlobalKeyboardHook;
 import lc.kra.system.keyboard.event.GlobalKeyAdapter;
 import lc.kra.system.keyboard.event.GlobalKeyEvent;
@@ -10,7 +11,8 @@ public class GlobalHotkeys
     private static boolean running = true;
     private GlobalKeyboardHook keyHook = new GlobalKeyboardHook();
 
-    VolumeManagerDLL jnaLib = VolumeManagerDLL.INSTANCE;
+
+    VolumeManagerDLL jnaLib;
 
     public static boolean getRunning(){ return running; }
 
@@ -20,6 +22,13 @@ public class GlobalHotkeys
     {
         this.program = program;
         this.deltaProgram = deltaProgram;
+
+
+        //System.setProperty("jna.library.path", "src/main/resources");
+        System.out.println(System.getProperties().getProperty("jna.library.path"));
+        System.loadLibrary("VolumeManagerDLL");
+        jnaLib = VolumeManagerDLL.INSTANCE;
+
     }
 
     public void start()
