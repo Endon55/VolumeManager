@@ -23,12 +23,10 @@ public class GlobalHotkeys
         this.program = program;
         this.deltaProgram = deltaProgram;
 
-
-        //System.setProperty("jna.library.path", "src/main/resources");
-        System.out.println(System.getProperties().getProperty("jna.library.path"));
-        System.loadLibrary("VolumeManagerDLL");
+        //System.setProperty("java.library.path", "lib");
+        System.setProperty("jna.library.path", "");
+        //System.loadLibrary("VolumeManagerDLL");
         jnaLib = VolumeManagerDLL.INSTANCE;
-
     }
 
     public void start()
@@ -38,21 +36,19 @@ public class GlobalHotkeys
             @Override
             public void keyPressed(GlobalKeyEvent event)
             {
-                if(event.getVirtualKeyCode() == GlobalKeyEvent.VK_F5 && event.isShiftPressed())
+                if(event.getVirtualKeyCode() == GlobalKeyEvent.VK_S && event.isShiftPressed() && event.isControlPressed())
                 {
                     jnaLib._Z12ChangeVolumefbPKc(deltaProgram, true, program);
                 }
-                if(event.getVirtualKeyCode() == GlobalKeyEvent.VK_F4 && event.isShiftPressed())
+                if(event.getVirtualKeyCode() == GlobalKeyEvent.VK_A && event.isShiftPressed() && event.isControlPressed())
                 {
                     jnaLib._Z12ChangeVolumefbPKc(deltaProgram, false, program);
                 }
-                if (event.getVirtualKeyCode() == GlobalKeyEvent.VK_A && event.isShiftPressed())
+                if (event.getVirtualKeyCode() == GlobalKeyEvent.VK_P && event.isShiftPressed() && event.isControlPressed())
                 {
-
                     System.out.println("Quitting!");
                     setRunning(false);
                 }
-                //if(event.)
             }
         });
 
